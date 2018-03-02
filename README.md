@@ -116,4 +116,7 @@ WAIK is a small build of a Windows Enviroment (Preinstallation) that can be boot
 This Software is specifically designed to help build customizable boot images from the Windows O/S.
 The entire thing runs scripts that build/compile the right components for a basic to a very customizable and specific desktop enviroment.
 Maintains "Projets" which are the images of the desktops so that they can be altred and adapted to a changing enviroment.
-
+##### The 'Why'
+Well its plainly obvious that Winbuilder is the major software piece here and when intergrated with the DISM and the ADK tools then deployed via Rufus to a USB make deployment of images to networked PC's much easier.
+What it will also allow you to do is to create images for testing, so whether or not you are creating a backup image or a restore disc all these tools will halp you achieve this and to a larger cass make those images quite unique to the person/s that are using them. In a very quick and effiecnt manner the scripts rebuild the O/S to a base level with the specified Applications for that specific image.
+The combination ov the above tools is really useful in so many ways to administrators that need to push iso's to end users or send disc/usb images to remote loactions or for safty sake (Storing the images offsite for insurance purpases).
