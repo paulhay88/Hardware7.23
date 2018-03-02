@@ -83,19 +83,37 @@ From scratch you can build a backup server with similar hardware devices
 With some software and you have yourself a small personal backup server.
 
 ## Session 2
-1. Download a copy of the Winbuilder toolchain from the lab server.  The distribution should include a copy of; 
-a. BuilderSE with the Win10PESE [3] project.
-b. ADK and DISM tools for the creation of the Win PE image.
-c. Rufus bootable removable media creator.
+1. Download a copy of the Winbuilder toolchain from the lab server.  
+The distribution should include a copy of; 
+  1. BuilderSE with the Win10PESE [3] project.
+  2. ADK and DISM tools for the creation of the Win PE image.
+  3. Rufus bootable removable media creator.
 
 Steps to follow
 1. Download and extract a copy of the MS Windows 10 operating system images with 7-zip – this should be available on the local drive or the Softlab server.
+###### Screen Shots below
 2. Extract the package and use the BuilderSE.exe to create a Client Recovery toolset. Make a list of the software and tools used for the recovery toolset and provide a rationale for tool selection. 
+###### Tools list is below, followed by rational
 3. Use the rufus tool to create a bootable USB stick and test it, or use Virtualbox to test the recovery image. 
+###### I loaded it as an Image in a Virtual Box
+But I did it on EIT's PC so I cant grab the scrrenshot right now. but will Load a running Iso image on Monday morning.
 
 Once you have the tool extracted and you also have a copy of the iso ready to go, you have to set the source of the iso in the Source section, it is the second tab on the main right hand screen.
 ![source](https://user-images.githubusercontent.com/26419649/36832615-0bc9ab64-1d91-11e8-993b-89671519d1af.png)
 then press play and it will automatically install a copy of the Recovery image into the projects folder in the WinBuilder folder and if you have Oracle Virtual Box installed when you run click on the image it will load a WinPE version on windows.
 If you have the right image and the right mount the end result should look like this
 ![winpese envioment](https://user-images.githubusercontent.com/26419649/36832811-eff0773c-1d91-11e8-8545-fa62d7000339.png)
+
+### Tools
+#### DISM
+Deployment Image Servicing and Management Tool
+Orginally introduced in Win7 and Server08R2, it iis a tool that performs service tasks on Windows based installation/recover iso'd.  The main funtions are the mounting and unmounting of images and checking devices drivers as well as adding drivers to offline iso's .
+#### ADK
+Windows Assessment and Deployment Kit - The Tool Kit formally known as WAIK or the Windows Automated Installtion Kit.
+Is a tool developed by Microsoft to deploy Windows images onto specific computers and systems, or to be used as a virtual image in VHD.
+WAIK is a small build of a Windows Enviroment (Preinstallation) that can be booted from disk, USB or external drive. It's used to query, fix or replace whole desktop enviroments.
+#### WinBuilder
+This Software is specifically designed to help build customizable boot images from the Windows O/S.
+The entire thing runs scripts that build/compile the right components for a basic to a very customizable and specific desktop enviroment.
+Maintains "Projets" which are the images of the desktops so that they can be altred and adapted to a changing enviroment.
 
