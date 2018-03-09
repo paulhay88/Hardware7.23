@@ -120,3 +120,28 @@ Maintains "Projets" which are the images of the desktops so that they can be alt
 Well its plainly obvious that Winbuilder is the major software piece here and when intergrated with the DISM and the ADK tools then deployed via Rufus to a USB make deployment of images to networked PC's much easier.
 What it will also allow you to do is to create images for testing, so whether or not you are creating a backup image or a restore disc all these tools will halp you achieve this and to a larger cass make those images quite unique to the person/s that are using them. In a very quick and effiecnt manner the scripts rebuild the O/S to a base level with the specified Applications for that specific image.
 The combination ov the above tools is really useful in so many ways to administrators that need to push iso's to end users or send disc/usb images to remote loactions or for safty sake (Storing the images offsite for insurance purpases).
+
+
+## Sesion 3
+1. Prepare a virtual machine with Windows Server 2012 (required for Sessions 4 & 5) and ensure the WDS and DHCP roles are included. (Disk 1) 
+2. Prepare a second virtual machine with the MS Windows 10 OS. (Disk 2) 
+3. Add an additional dynamic drive of 20GB to the MS Windows machine and format it. (Disk 3) 
+4. [option 1] Download the live Clonezilla image from the Softlab FTP server.Boot up with the Clonezilla and proceed to capture the Windows 10 drive image and store it onto Disk 3. 
+5. [option 2] Download a Macrium Reflect[4]. Use Macrium to capture and restore the Windows 10 drive image onto Disk 3.  
+6. Boot the windows VM with dban[3] to wipe the Windows drive and confirm it is now “broken”. 
+7. Restore the captured bare metal image and confirm it still works
+
+The first 3 steps can be summed up in the following screenshot
+![os disc](https://user-images.githubusercontent.com/26419649/37229846-49a64540-244a-11e8-8e98-6fd5d1bdfe3a.png)
+Running CloneZilla had its moments with being slightly dificult at times but mainly because I was missreading the program which lead me to selecting the wrong drives and writing over the user with the blank disc.
+![clonezilla2](https://user-images.githubusercontent.com/26419649/37230203-6800a566-244b-11e8-8d37-fc04d98f55fd.png)
+And at another time the program was just not happy and did some weird stuff and at another stage it just lost itself in the load and just hung/stalled after 16 seconds.
+![clonezilla6](https://user-images.githubusercontent.com/26419649/37230175-527f4738-244b-11e8-8fd5-12271477ccf9.png)
+![clonezilla4](https://user-images.githubusercontent.com/26419649/37230127-32ba7e40-244b-11e8-9b20-dac8f29eaa5c.png)
+but in the end i got it working 
+![clonezilla7](https://user-images.githubusercontent.com/26419649/37230057-0502bc74-244b-11e8-96da-00b19d3969fa.png)
+![clonezilla7-seamstobeworking](https://user-images.githubusercontent.com/26419649/37230087-1c95aea0-244b-11e8-9f35-f4506a29d186.png)
+Running dban as a live disc in the win10 wasn't that fast wiped the disc at roughly 1GB a min 
+After the disc ran and wiped the drive I removed dban and tried running it and there was a fatal error with no loadable media, so I deleted the drive (Mainly beacuse I couldn't figure out on VM how to select one drive over the other and loaded the system and Whalla it worked.
+![clonezilla8-blankdiscloaded](https://user-images.githubusercontent.com/26419649/37230397-40c80d6c-244c-11e8-81c2-a958e5915b8a.png)
+
