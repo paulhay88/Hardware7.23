@@ -157,4 +157,16 @@ After the disc ran and wiped the drive I removed dban and tried running it and t
 2. then just type Sysprep
 3. Select Generalize as it will remove all unique information about this PC so that when it is run on another PC it just coallates the corect information into the right places aso as to avoid Hardware or dependey failure.
 4. Select Shutdown otherwise it will restart the OOBE
-5 Sysprep Shits the BED
+5. Sysprep Shits the BED
+
+I cant go anyfurther with this iso sysprep isnt working .
+
+#### Part 2
+I installed WDS on installation 
+
+#### Part 3 
+
+#### Part 4
+Disc cleared
+
+#### Part 5
