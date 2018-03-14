@@ -180,13 +180,13 @@ After the disc ran and wiped the drive I removed dban and tried running it and t
 ![sysprepshit](https://user-images.githubusercontent.com/26419649/37391796-3305b55c-27d1-11e8-8844-c6d982f8ac72.png)
 
 What follows is a series of attempts to resolve this issue
-a. I read the log file to see what i could find
+  1. I read the log file to see what i could find
 
 ![errorlist](https://user-images.githubusercontent.com/26419649/37391696-d1c75b10-27d0-11e8-8b8f-2e6efdad3431.png)
 
-b. I tried running updates - did nothing
-c. Many forums keep pointing to editing the Registry and deleting the "Upgrade" portion of the HKEY_LOCAL_MACHINE\SYSTEM\Setup\ registry. But alas i did not have this in my registry.
-d. Then I saw this, and thought to myself "Well Mr T-Rex you and your modest arms might just help me yet"
+  2. I tried running updates - did nothing
+  3. Many forums keep pointing to editing the Registry and deleting the "Upgrade" portion of the HKEY_LOCAL_MACHINE\SYSTEM\Setup\ registry. But alas i did not have this in my registry.
+  4. Then I saw this, and thought to myself "Well Mr T-Rex you and your modest arms might just help me yet"
 
 ![mtt-rex](https://user-images.githubusercontent.com/26419649/37391965-c8e17656-27d1-11e8-9a23-df15e0a030bc.png)
 
