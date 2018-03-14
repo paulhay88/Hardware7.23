@@ -145,3 +145,16 @@ Running dban as a live disc in the win10 wasn't that fast wiped the disc at roug
 After the disc ran and wiped the drive I removed dban and tried running it and there was a fatal error with no loadable media, so I deleted the drive (Mainly beacuse I couldn't figure out on VM how to select one drive over the other and loaded the system and Whalla it worked.
 ![clonezilla8-blankdiscloaded](https://user-images.githubusercontent.com/26419649/37230397-40c80d6c-244c-11e8-81c2-a958e5915b8a.png)
 
+## Sesion 4 
+1. Prepare the Windows client machine for capture using sysprep[1][2].  
+2. Prepare the WDS server for receiving the image.  
+3. Capture the image from the Windows client and store it onto the blank drive (refer to a) from Session 3).  
+4. Boot up with dban[3] to wipe the Windows drive and confirm it is now “broken”.  
+5. Deploy the captured Windows client image using the WDS and confirm it still works. 
+
+#### Part 1
+1. Bring up CMD and go to C: and then type %SystemRoot%\Syste32\Sysprep
+2. then just type Sysprep
+3. Select Generalize as it will remove all unique information about this PC so that when it is run on another PC it just coallates the corect information into the right places aso as to avoid Hardware or dependey failure.
+4. Select Shutdown otherwise it will restart the OOBE
+5 Sysprep Shits the BED
