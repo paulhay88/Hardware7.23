@@ -194,8 +194,11 @@ And then this started happening
 
 ![removing apppackages](https://user-images.githubusercontent.com/26419649/37392231-701af62c-27d2-11e8-9c2a-4c5468aa8aaf.png)
 
-......It's taking a while.
+......It's taking a while. It seams to have worked
 
+![itworked](https://user-images.githubusercontent.com/26419649/37392652-9e7ace56-27d3-11e8-8b9d-dba853c73b45.png)
+
+.....But now this is taking a while
 
 I cant go anyfurther with this iso sysprep isnt working .
 
