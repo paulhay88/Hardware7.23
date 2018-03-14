@@ -200,7 +200,8 @@ And then this started happening
 
 .....But now this is taking a while
 
-I cant go anyfurther with this iso sysprep isnt working .
+So it shutdown and i stupidly started it again to only realise it was reset and was at a fresh state, this is apparently where you need to export the iso so that it can be imported tothe server. Lesson learned. 
+Exporting takes a while. 
 
 #### Part 2
 I installed WDS on installation 
