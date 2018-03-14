@@ -99,9 +99,11 @@ Steps to follow
 But I did it on EIT's PC so I cant grab the scrrenshot right now. but will Load a running Iso image on Monday morning.
 
 Once you have the tool extracted and you also have a copy of the iso ready to go, you have to set the source of the iso in the Source section, it is the second tab on the main right hand screen.
+
 ![source](https://user-images.githubusercontent.com/26419649/36832615-0bc9ab64-1d91-11e8-993b-89671519d1af.png)
 then press play and it will automatically install a copy of the Recovery image into the projects folder in the WinBuilder folder and if you have Oracle Virtual Box installed when you run click on the image it will load a WinPE version on windows.
 If you have the right image and the right mount the end result should look like this
+
 ![winpese envioment](https://user-images.githubusercontent.com/26419649/36832811-eff0773c-1d91-11e8-8545-fa62d7000339.png)
 
 ### Tools
@@ -132,18 +134,28 @@ The combination ov the above tools is really useful in so many ways to administr
 7. Restore the captured bare metal image and confirm it still works
 
 The first 3 steps can be summed up in the following screenshot
+
 ![os disc](https://user-images.githubusercontent.com/26419649/37229846-49a64540-244a-11e8-8e98-6fd5d1bdfe3a.png)
+
 Running CloneZilla had its moments with being slightly dificult at times but mainly because I was missreading the program which lead me to selecting the wrong drives and writing over the user with the blank disc.
+
 ![clonezilla2](https://user-images.githubusercontent.com/26419649/37230203-6800a566-244b-11e8-8d37-fc04d98f55fd.png)
+
 And at another time the program was just not happy and did some weird stuff and at another stage it just lost itself in the load and just hung/stalled after 16 seconds.
+
 ![clonezilla6](https://user-images.githubusercontent.com/26419649/37230175-527f4738-244b-11e8-8fd5-12271477ccf9.png)
 ![clonezilla4](https://user-images.githubusercontent.com/26419649/37230127-32ba7e40-244b-11e8-9b20-dac8f29eaa5c.png)
+
 but in the end i got it working 
+
 ![clonezilla7](https://user-images.githubusercontent.com/26419649/37230057-0502bc74-244b-11e8-96da-00b19d3969fa.png)
 ![clonezilla7-seamstobeworking](https://user-images.githubusercontent.com/26419649/37230087-1c95aea0-244b-11e8-9f35-f4506a29d186.png)
+
 Running dban as a live disc in the win10 wasn't that fast wiped the disc at roughly 1GB a min 
 After the disc ran and wiped the drive I removed dban and tried running it and there was a fatal error with no loadable media, so I deleted the drive (Mainly beacuse I couldn't figure out on VM how to select one drive over the other and loaded the system and Whalla it worked.
+
 ![clonezilla8-blankdiscloaded](https://user-images.githubusercontent.com/26419649/37230397-40c80d6c-244c-11e8-81c2-a958e5915b8a.png)
+
 
 ## Sesion 4 
 1. Prepare the Windows client machine for capture using sysprep[1][2].  
@@ -154,22 +166,34 @@ After the disc ran and wiped the drive I removed dban and tried running it and t
 
 #### Part 1
 1. Bring up CMD and go to C: and then type %SystemRoot%\Syste32\Sysprep
+
 ![sysprep](https://user-images.githubusercontent.com/26419649/37391766-12a247f8-27d1-11e8-969a-18ae568876b9.png)
+
 2. then just type Sysprep
 3. Select Generalize as it will remove all unique information about this PC so that when it is run on another PC it just coallates the corect information into the right places aso as to avoid Hardware or dependey failure.
 4. Select Shutdown otherwise it will restart the OOBE
+
 ![sysprep2](https://user-images.githubusercontent.com/26419649/37391783-220c684a-27d1-11e8-9338-b52706bde318.png)
+
 5. Sysprep Shits the BED
+
 ![sysprepshit](https://user-images.githubusercontent.com/26419649/37391796-3305b55c-27d1-11e8-8844-c6d982f8ac72.png)
+
 What follows is a series of attempts to resolve this issue
 a. I read the log file to see what i could find
+
 ![errorlist](https://user-images.githubusercontent.com/26419649/37391696-d1c75b10-27d0-11e8-8b8f-2e6efdad3431.png)
+
 b. I tried running updates - did nothing
 c. Many forums keep pointing to editing the Registry and deleting the "Upgrade" portion of the HKEY_LOCAL_MACHINE\SYSTEM\Setup\ registry. But alas i did not have this in my registry.
 d. Then I saw this, and thought to myself "Well Mr T-Rex you and your modest arms might just help me yet"
+
 ![mtt-rex](https://user-images.githubusercontent.com/26419649/37391965-c8e17656-27d1-11e8-9a23-df15e0a030bc.png)
+
 And then this started happening
+
 ![removing apppackages](https://user-images.githubusercontent.com/26419649/37392231-701af62c-27d2-11e8-9c2a-4c5468aa8aaf.png)
+
 ......It's taking a while.
 
 
