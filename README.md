@@ -154,10 +154,24 @@ After the disc ran and wiped the drive I removed dban and tried running it and t
 
 #### Part 1
 1. Bring up CMD and go to C: and then type %SystemRoot%\Syste32\Sysprep
+![sysprep](https://user-images.githubusercontent.com/26419649/37391766-12a247f8-27d1-11e8-969a-18ae568876b9.png)
 2. then just type Sysprep
 3. Select Generalize as it will remove all unique information about this PC so that when it is run on another PC it just coallates the corect information into the right places aso as to avoid Hardware or dependey failure.
 4. Select Shutdown otherwise it will restart the OOBE
+![sysprep2](https://user-images.githubusercontent.com/26419649/37391783-220c684a-27d1-11e8-9338-b52706bde318.png)
 5. Sysprep Shits the BED
+![sysprepshit](https://user-images.githubusercontent.com/26419649/37391796-3305b55c-27d1-11e8-8844-c6d982f8ac72.png)
+What follows is a series of attempts to resolve this issue
+a. I read the log file to see what i could find
+![errorlist](https://user-images.githubusercontent.com/26419649/37391696-d1c75b10-27d0-11e8-8b8f-2e6efdad3431.png)
+b. I tried running updates - did nothing
+c. Many forums keep pointing to editing the Registry and deleting the "Upgrade" portion of the HKEY_LOCAL_MACHINE\SYSTEM\Setup\ registry. But alas i did not have this in my registry.
+d. Then I saw this, and thought to myself "Well Mr T-Rex you and your modest arms might just help me yet"
+![mtt-rex](https://user-images.githubusercontent.com/26419649/37391965-c8e17656-27d1-11e8-9a23-df15e0a030bc.png)
+And then this started happening
+![removing apppackages](https://user-images.githubusercontent.com/26419649/37392231-701af62c-27d2-11e8-9c2a-4c5468aa8aaf.png)
+......It's taking a while.
+
 
 I cant go anyfurther with this iso sysprep isnt working .
 
