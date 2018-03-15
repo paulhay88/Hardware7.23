@@ -200,8 +200,32 @@ And then this started happening
 
 .....But now this is taking a while
 
-So it shutdown and i stupidly started it again to only realise it was reset and was at a fresh state, this is apparently where you need to export the iso so that it can be imported tothe server. Lesson learned. 
+So it shutdown and i stupidly started it again to only realise it was reset and was at a fresh state, this is apparently where you need to export the iso so that it can be imported to the server. Lesson learned. 
 Exporting takes a while. 
+
+![export](https://user-images.githubusercontent.com/26419649/37441188-fac220c4-2864-11e8-826c-2da69a7d1d09.png)
+
+Image expoted to a file then I tired importing it as a .ova file but that didnt work so then i learnt that it had to be extracted, so i used 7-zip and unzipped the file to find a set of .vmdk files obviously one being the current back up and the other being a blank disc.
+
+![extractova](https://user-images.githubusercontent.com/26419649/37441217-1c62722e-2865-11e8-8d0b-de5e69a96318.png)
+
+Now was the challenge of converting it, one way I followed led me to a dead end as it only was usable for a certian set of distrabutions but then I found a forum that said there was a very simple way using CMD to convert the file to a .vdi.
+
+![vmdkcovrsiontovdi](https://user-images.githubusercontent.com/26419649/37441258-646bccf0-2865-11e8-9fdd-9e816380bcb7.png)
+
+What this does is copies the the current drive and reformats it to vdi, it allows you to specify the new name, location and format of the drive.
+
+![looksgood](https://user-images.githubusercontent.com/26419649/37441300-9d89acaa-2865-11e8-829a-57201c349a73.png)
+
+then I loaded the vdi into the server as an alternate harddrive.
+
+![newvdi no warning sign](https://user-images.githubusercontent.com/26419649/37441357-ef274e46-2865-11e8-8a81-a650d4b67b69.png)
+
+It's called new because when I formatted it, it was called new and after you format it if you change thew name the drive doesn't work because the UUID is set to the original name.
+
+![vdi insata](https://user-images.githubusercontent.com/26419649/37441387-109a42a4-2866-11e8-9164-366be89d0f2a.png)
+
+
 
 #### Part 2
 I installed WDS on installation 
