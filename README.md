@@ -231,8 +231,16 @@ It's called new because when I formatted it, it was called new and after you for
 I installed WDS on installation 
 
 #### Part 3 
-
+I couldn't get DISM working on the exported image
 #### Part 4
 Disc cleared
 
 #### Part 5
+I had the image set as a VDI and was able to get the server ready for deployment but i couldn't mount the boot image because i couldn't capture it.
+I had the AD DS, DHCP, DNS and an NTFS stroage device ready to go
+
+![wds](https://user-images.githubusercontent.com/26419649/37447634-d6b0601a-2887-11e8-8502-5f9c20a2ed7a.png)
+
+I had the windows deploymwnt system ready I jus t need help with the DISM and then I can deploy the iso through the server but i cant mount the boot or install images
+
+Will continue after seeing John
