@@ -243,4 +243,7 @@ I had the AD DS, DHCP, DNS and an NTFS stroage device ready to go
 
 I had the windows deploymwnt system ready I jus t need help with the DISM and then I can deploy the iso through the server but i cant mount the boot or install images
 
-Will continue after seeing John
+Ok, so my problem was I was mounting the wrong image and couldn't find thhe boot file nor the install file.
+
+Fixed it and installed the .wim files in the correct place 
+
