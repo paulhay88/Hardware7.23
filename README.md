@@ -175,7 +175,7 @@ After the disc ran and wiped the drive I removed dban and tried running it and t
 
 ![sysprep2](https://user-images.githubusercontent.com/26419649/37391783-220c684a-27d1-11e8-9338-b52706bde318.png)
 
-5. Sysprep Shits the BED
+5. Sysprep didn't work.
 
 ![sysprepshit](https://user-images.githubusercontent.com/26419649/37391796-3305b55c-27d1-11e8-8844-c6d982f8ac72.png)
 
@@ -225,25 +225,44 @@ It's called new because when I formatted it, it was called new and after you for
 
 ![vdi insata](https://user-images.githubusercontent.com/26419649/37441387-109a42a4-2866-11e8-9164-366be89d0f2a.png)
 
-
-
 #### Part 2
-I installed WDS on installation 
+I installed WDS on installation
+1. Dear god how wrong I was to think that was all I needed to do.
+2. So i set up ADDS, DHCP, DNS and NTFS
+3. In the DHCP i had to set the Scope
+
+![scope](https://user-images.githubusercontent.com/26419649/37810862-893db046-2ebb-11e8-8809-88e8cef5789e.png)
+
+Do not have the server IP in the Scope
+4. Inside the 'Server Options' tick '060 PXE Client' and set the String value as the IP address less the last part. eg If your Server's IP is 192.168.1.25, drop the .25. 
+5. Also 'Activate' the DHCP
+6. In the DNS I set the Server name as "Server".
 
 #### Part 3 
-I couldn't get DISM working on the exported image
+Once the syspreped machine is ready an the Server has been configureed correctly You run the Client machine and hit the boot options for LAN and wait for the PXE to connect and take you to a screen where you have the option to Capture or Boot and Image, Select Capture.
+This process can take a while.
+
+![capture](https://user-images.githubusercontent.com/26419649/37810880-a3b9a59c-2ebb-11e8-8f4b-584398d4ef20.png)
+
 #### Part 4
-Disc cleared
+Instead of running Dban, I created a new machine with no image disc, and a black drive then made the connection to the system as internal and loaded the machine and pressed F12 and then waited for the PXE server to connect and ofer me the boot Image to load and then selected it.
+So this was there was litterally no trace of any opperating system near this machine and it still boted into PXE and the WDS and went through to the configuration
+I ran Dban in the last Lab refer last Lab for screenshots if needed.
 
 #### Part 5
+1. The following part didn't work and is mearly my observations on what I was attempting at that time.
 I had the image set as a VDI and was able to get the server ready for deployment but i couldn't mount the boot image because i couldn't capture it.
 I had the AD DS, DHCP, DNS and an NTFS stroage device ready to go
 
 ![wds](https://user-images.githubusercontent.com/26419649/37447634-d6b0601a-2887-11e8-8502-5f9c20a2ed7a.png)
 
-I had the windows deploymwnt system ready I jus t need help with the DISM and then I can deploy the iso through the server but i cant mount the boot or install images
+I had the windows deploymwnt system ready I just need help with the DISM and then I can deploy the iso through the server but i cant mount the boot or install images
+2. Below is the Image from the WDS installing the Windows configuration onto a completly blank machine.
 
-Ok, so my problem was I was mounting the wrong image and couldn't find thhe boot file nor the install file.
+![captured deployed](https://user-images.githubusercontent.com/26419649/37810845-734df912-2ebb-11e8-8113-8413f993faa7.png)
 
-Fixed it and installed the .wim files in the correct place 
+#### Things I've learnt and had to fix during the deployment.
+So one of my problems was that I was mounting the wrong image and couldn't find the boot file nor the install file. but after some help I got the right file in the right place.
+1. Side note - If the system is relying on older hardware a boot.wim file from a Windows 7 image will work better as has more of the older drivers installed in it. 
+Make sure all your extra drives are formated
 
