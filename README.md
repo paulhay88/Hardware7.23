@@ -266,3 +266,122 @@ So one of my problems was that I was mounting the wrong image and couldn't find 
 1. Side note - If the system is relying on older hardware a boot.wim file from a Windows 7 image will work better as has more of the older drivers installed in it. 
 Make sure all your extra drives are formated
 
+
+# LAB 3 - Powershell
+## Session 6
+1. Create a script that will scan and parse client machines event logs [1][2][3] for ‘Error’ event types within the last seven days of the current date. Do not used hard-coded information. Save the results to a file then clear the logs
+
+2. Create a script that executes sfc.exe /scannow to generate a log file. Scan and parse the log file for messages such as “Cannot repair member… “,”Repaired file…”, “Repairing corrupted…”, etc. and save them to a new text file
+
+
+I used the Get-EventLog command
+Get-EventLog has a few arguements
+   [-LogName] <String>
+   [-ComputerName <String[]>]
+   [-Newest <Int32>]
+   [-After <DateTime>]
+   [-Before <DateTime>]
+   [-UserName <String[]>]
+   [[-InstanceId] <Int64[]>]
+   [-Index <Int32[]>]
+   [-EntryType <String[]>]
+   [-Source <String[]>]
+   [-Message <String>]
+   [-AsBaseObject]
+   [<CommonParameters>]
+
+For the Majority I set them as variables and called them to make the script more dynamic and have more control and have every veriable together.
+
+$logPath = "C:\Users\Administrator\Desktop\log.txt"
+$computer = "SERVER2012"
+$date = Get-Date
+$sevenDays = New-Object System.TimeSpan 7,0,0,0,0
+$then = $date.Subtract($sevenDays)
+$EventLog = Get-EventLog -LogName System -ComputerName $computer -After $then -Before $date -EntryType Error | Out-File $logPath
+Clear-EventLog -LogName System
+
+For the scan I used variables to set the Logs, the Fail / search criteria then scanned the drive in this case it was C;/Windowas\\System32 \sfc.exe
+I then created a variable of the CBS file which was an object then ised that object to fill the logs witht he words that are relevant in this case it was "repair" and "fail"
+
+$scanPath = "C:\Users\Administrator\Desktop\scan.txt"
+$repairLog = "C:\Users\Administrator\Desktop\repair.txt"
+$failLog = "C:\Users\Administrator\Desktop\fail.txt"
+$CBSFileLocation = "C:\Windows\Logs\CBS\CBS.log"
+$repair = "Repair"
+$fail = "fail"
+&C:\Windows\System32\sfc.exe /scannow
+$ScanX = Get-Content $CBSFileLocation
+$ScanX | Out-File $scanPath
+Select-String -Path $scanPath -Pattern $repair | Out-File $repairLog
+Select-String -Path $scanPath -Pattern $fail | Out-File $failLog
+
+But for fun sakes I built them as one script which looks like this
+
+$logPath = "C:\Users\Administrator\Desktop\log.txt"
+$scanPath = "C:\Users\Administrator\Desktop\scan.txt"
+$repairLog = "C:\Users\Administrator\Desktop\repair.txt"
+$failLog = "C:\Users\Administrator\Desktop\fail.txt"
+$computer = "SERVER2012"
+$CBSFileLocation = "C:\Windows\Logs\CBS\CBS.log"
+$date = Get-Date
+$sevenDays = New-Object System.TimeSpan 7,0,0,0,0
+$repair = "Repair"
+$fail = "fail"
+$then = $date.Subtract($sevenDays)
+$EventLog = Get-EventLog -LogName System -ComputerName $computer -After $then -Before $date -EntryType Error | Out-File $logPath
+Clear-EventLog -LogName System
+&C:\Windows\System32\sfc.exe /scannow
+$ScanX = Get-Content $CBSFileLocation
+$ScanX | Out-File $scanPath
+Select-String -Path $scanPath -Pattern $repair | Out-File $repairLog
+Select-String -Path $scanPath -Pattern $fail | Out-File $failLog
+echo "Done!!"
+
+
+## Session 7
+Create a scheduled task[6][7] that executes a Windows Powershell script as soon as a user logs onto the computer. The script must execute the following : 
+ccleaner[9] (with /AUTO) 
+cleanmgr (with /sagerun:1. You need to do a /sageset:1 first) 
+defraggler[8] (as /QD on C:). 
+Once the above tasks have completed, the script must then kill any process identified by a blacklist (you specified) that should not be running. 
+Document the details of the scheduled task. 
+
+The first thing you need to do is open up Task Scheduler 
+
+
+![image](https://user-images.githubusercontent.com/26419649/39668137-7a15676e-5119-11e8-8d46-e0df911ef302.png)
+set a new task to run on boot.
+Download all the software needed
+open up powershell and set the conditional run settings eg. sageset 
+
+I used the following script to achieve the task
+
+#Starts CCleaner, has the SAGESET there as well as the run incase you want to change it, also starts the Defragler Verbosly so you can watch the percentage of the task as its happening, and I wasn't entirely sure about the black list so I explicitly told the system to Get-Process and stop Ccleaner to achieve the goal of the task.
+Start-Process "C:\Program Files\CCleaner\CCleaner.exe" -ArgumentList "/AUTO"
+#&Cleanmgr.exe /SAGESET:11
+&Cleanmgr.exe /SAGERUN:11
+Start-Process -FilePath "C:\Program Files\Defraggler\df64.exe" -ArgumentList "c: /qd" -Verbose
+Get-Process | Where-Object {$_.FileName -eq "CCleaner" } | Select-Object -First | Stop-Process
+
+## Session 8-9
+
+Create a script that contains the following Powershell functions: 
+1. Get-Computer-List – returns a list of computers, registered in the Active Directory, by their computer name.  
+2. Get-Computer-MAC – returns the MAC address of the remote computer using a computer name from the Get-Computer-List function. 
+3. Get-Computer-IPaddress – returns the IP address of the remote computer using a computer name from the Get-Computer-List function. 
+4. Send-WOL – send a Wake On LAN message to the destination computer using a MAC from the GetComputer-MAC function.  
+5. Send-Shutdown – send a shutdown request to the remote computer using the computer name from the Get-Computer-List function. 
+6. Get-Computer-CPU – returns the CPU name/type of the remote computer using a computer name from the Get-Computer-List function.
+
+
+To download the AD modules run 
+Import-Module ActiveDirectory
+
+After which you can use the AD commands
+
+To view all computers on a network you can use 
+Get-ADComputer -Filter 'ObjectClass -eq "Computer"' | Select -Expand DNSHostName
+The pipe filters the infomation incase there are a lot of computers on a network, in this case I only had one so I filtered it by the hostName
+
+
+
