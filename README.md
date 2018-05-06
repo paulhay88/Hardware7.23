@@ -380,8 +380,8 @@ Import-Module ActiveDirectory
 After which you can use the AD commands
 
 To view all computers on a network you can use 
-Get-ADComputer -Filter 'ObjectClass -eq "Computer"' | Select -Expand DNSHostName
-The pipe filters the infomation incase there are a lot of computers on a network, in this case I only had one so I filtered it by the hostName
+Get-ADComputer -Filter 'ObjectClass -eq "Computer"'
+
 
 
 
