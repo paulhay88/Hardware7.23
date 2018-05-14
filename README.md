@@ -364,23 +364,113 @@ Start-Process -FilePath "C:\Program Files\Defraggler\df64.exe" -ArgumentList "c:
 Get-Process | Where-Object {$_.FileName -eq "CCleaner" } | Select-Object -First | Stop-Process
 
 ## Session 8-9
-
-Create a script that contains the following Powershell functions: 
-1. Get-Computer-List – returns a list of computers, registered in the Active Directory, by their computer name.  
-2. Get-Computer-MAC – returns the MAC address of the remote computer using a computer name from the Get-Computer-List function. 
-3. Get-Computer-IPaddress – returns the IP address of the remote computer using a computer name from the Get-Computer-List function. 
-4. Send-WOL – send a Wake On LAN message to the destination computer using a MAC from the GetComputer-MAC function.  
-5. Send-Shutdown – send a shutdown request to the remote computer using the computer name from the Get-Computer-List function. 
-6. Get-Computer-CPU – returns the CPU name/type of the remote computer using a computer name from the Get-Computer-List function.
-
-
 To download the AD modules run 
 Import-Module ActiveDirectory
 
 After which you can use the AD commands
+Create a script that contains the following Powershell functions: 
+1. Get-Computer-List – returns a list of computers, registered in the Active Directory, by their computer name.  
 
-To view all computers on a network you can use 
-Get-ADComputer -Filter 'ObjectClass -eq "Computer"'
+function GET-COMPUTER-LIST {
+param ([str] $filter = "LAB")
+$list = Get-ADComputer -Filter $filter -Properties name | Format-List name
+return $list
+}
+
+2. Get-Computer-MAC – returns the MAC address of the remote computer using a computer name from the Get-Computer-List function. 
+
+function GET-MAC {
+param ([str] $filter = "LAB")
+GET-COMPUTER-LIST($filter) 
+foreach($Computer in $list) {
+Get-WmiObject -Class Win32_NetworkAdapter -ComputerName $Computer | Select MACAddress
+}
+}
+
+3. Get-Computer-IPaddress – returns the IP address of the remote computer using a computer name from the Get-Computer-List function. 
+
+function GET-IP {
+param ([str] $filter = "LAB")
+GET-COMPUTER-LIST($filter)
+foreach($Computer in $list) {
+Get-WmiObject -Class Win32_NetworkAdapterConfiguration -ComputerName $Computer | Select IPAddress
+}
+}
+
+4. Send-WOL – send a Wake On LAN message to the destination computer using a MAC from the GetComputer-MAC function.  
+
+##NOT MY CODE!!!!!!!!!!!
+## THIS is an example of a SEND WOL funtion i could not figure the MAC part of sending WOL but this works fine
+function Send-WOL {
+    param (
+        [parameter(
+            mandatory=$true,
+            position=0,
+            ValueFromPipeline=$true,
+            ValueFromPipelineByPropertyName=$true)]
+        [ValidateLength(17,17)]
+        [ValidatePattern("^([0-9A-F]{2}[:-]){5}([0-9A-F]{2})$")]
+        [array]$MACAddress
+    )
+    foreach ($MAC in $MACAddress) {
+        try {
+            $MAC = $mac.split(':') | %{ [byte]('0x' + $_) }
+            $UDPclient = new-Object System.Net.Sockets.UdpClient
+            $UDPclient.Connect(([System.Net.IPAddress]::Broadcast),4000)
+            $Packet = [byte[]](,0xFF * 6)
+            $Packet += $MAC * 16
+            Write-Verbose ([bitconverter]::tostring($Packet))
+            [void] $UDPclient.Send($Packet, $Packet.Length)
+            Write-Output "WOL command sent to $MAC"
+        } catch [system.exception] {
+            Write-Output "ERROR: Unable to send WOL command to $MAC"
+        }
+    }
+}
+
+5. Send-Shutdown – send a shutdown request to the remote computer using the computer name from the Get-Computer-List function. 
+
+function SHUTDOWN {
+param ([str] $filter = "LAB23")
+GET-COMPUTER-LIST($filter)
+foreach($Computer in $list) {
+Stop-Computer -ComputerName $Computer -Credential -Force -Confirm
+}
+}
+
+6. Get-Computer-CPU – returns the CPU name/type of the remote computer using a computer name from the Get-Computer-List function.
+
+function GET-CPU {
+param ([str] $filter = "LAB")
+GET-COMPUTER-LIST($filter)
+foreach($Computer in $list) {
+Get-WmiObject -Class win32_processor -ComputerName $Computer | select Name
+}
+}
+
+## Session 10
+### e
+Create a script that will read in a CSV file and bulk create user accounts in Active Directory. This is a common activity where rooms of computers or machines are refreshed at the end of a defined period (term, semester, year, etc). You can use the Windows server installation prepared during Session 3.  Include at least the following user related information – Name, Firstname, Password, Office, Telephone and Department
+
+$UserList=IMPORT-CSV C:ImportsUsers.csv
+FOREACH ($Person in $UserList) {
+#Build Username from First name and Last Initial
+$Username=$Person.Firstname+$Person.Lastname.substring(0,1)
+#Put our Domain name into a Placeholder, who wants all that typing?
+$Domain=’Server.local’
+#Build the User Principal Name Username with Domain added to it
+$UPN=$Username+$Domain
+#Create the Displayname
+$Name=$Person.Firstname+” “+$Person.Lastname
+#Create User in Active Directory
+NEW-QADUSER –FirstName $Person.Firstname –Lastname $Person.Lastname –Name $DisplayName $Name –SamAccountName $Username –UserPassword ‘1NewPassword’ –UserPrincipalName $UPN –Name $Name –ParentContainer ‘Blueville.local/Division/Contoso’
+}
+
+### f
+Create a script that will generate a text file of Active Directory users but not computers that have been inactive for at least 180 days
+Get-ADUser –filter * | Where { $_.LastLogOnDate –lt (Get-Date).AddDays(-180) } | Out-File $fileLocation.txt
+
+
 
 
 
