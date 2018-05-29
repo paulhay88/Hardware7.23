@@ -472,6 +472,15 @@ Get-ADUser –filter * | Where { $_.LastLogOnDate –lt (Get-Date).AddDays(-180)
 
 
 
-
+## Session 13
+Choose one of the following candidate solutions to construct a private cloud: 
+Pydio - https://pydio.com/en 
+ownCloud - https://owncloud.org/ 
+Seafile - https://www.seafile.com/en/home/ 
+Cozy - https://cozy.io/en/ 
+Syncthing - https://syncthing.net/ 
+OpenStack - https://www.ubuntu.com/download/cloud 
+ 
+Install the chosen candidate and setup a private cloud between two computers – one acting as the cloud server, the other as the client. Verify the cloud solution works. Describe the type of cloud solution you have created and the rationale for the chosen solution.
 
 
