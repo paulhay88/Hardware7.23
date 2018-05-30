@@ -502,24 +502,24 @@ What Seafile allows you to do is install client syncrniose tools to your phone o
  Firstly It needs Python 2.7.11 32 bit to run & requires PATH enviromental variables to be added in the C;\Python 27
 
 ###### ServerSide
-Then a Server File needed to be set up on the C:\ and have the server installed in there
-click the run.bat file inside the unzipped server file 
-Choose the disk
-Add an Admin account by right clicking on the tray icon 
-Open up the conf/ccnet.conf file with notepdd++ and edit the SERVIC URL to have your IP address before the port :8000
-restart SeaFile
-Open a browser and connect using the URL and admin login credentials
+1) Then a Server File needed to be set up on the C:\ and have the server installed in there
+2) click the run.bat file inside the unzipped server file 
+3) Choose the disk
+4) Add an Admin account by right clicking on the tray icon 
+5) Open up the conf/ccnet.conf file with notepdd++ and edit the SERVIC URL to have your IP address before the port :8000
+6) restart SeaFile
+7) Open a browser and connect using the URL and admin login credentials
 
 ###### ClientSide
-Install the Client tool on the device u wanted in this case its the 6.1.8 version for Windows
+1) Install the Client tool on the device u wanted in this case its the 6.1.8 version for Windows
 
 ![image](https://user-images.githubusercontent.com/26419649/40694015-80187c98-640e-11e8-9169-93c3f0b87bf7.png)
 
-Choose File location for folder & accept permissions then install
-Select User Name and Add an Account 
+2) Choose File location for folder & accept permissions then install
+3) Select User Name and Add an Account 
 
 ![image](https://user-images.githubusercontent.com/26419649/40694059-c54a0034-640e-11e8-8128-5951cf9971bd.png)
 
-Connect and share 
+4) Connect and share 
 
 ![image](https://user-images.githubusercontent.com/26419649/40691274-36023310-63ff-11e8-9d46-8565c11fe1ac.png)
