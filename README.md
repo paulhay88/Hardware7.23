@@ -484,9 +484,6 @@ OpenStack - https://www.ubuntu.com/download/cloud
 Install the chosen candidate and setup a private cloud between two computers – one acting as the cloud server, the other as the client. Verify the cloud solution works. Describe the type of cloud solution you have created and the rationale for the chosen solution.
 
 I chose Seafile
-
-![image](https://user-images.githubusercontent.com/26419649/40691274-36023310-63ff-11e8-9d46-8565c11fe1ac.png)
-
 this is the Server version I downloaded 
 
 ![image](https://user-images.githubusercontent.com/26419649/40691321-7cac073c-63ff-11e8-840f-be7450750229.png)
@@ -503,9 +500,18 @@ What Seafile allows you to do is install client syncrniose tools to your phone o
   This also alows Time stamps of work to be created so that changes that have been made can be unmade incase some error in the code has occured
   #### Issues I encountered setting it up
  Firstly It needs Python 2.7.11 32 bit to run & requires PATH enviromental variables to be added in the C;\Python 27
- 
+
+###### ServerSide
 Then a Server File needed to be set up on the C:\ and have the server installed in there
 click the run.bat file inside the unzipped server file 
 Choose the disk
 Add an Admin account by right clicking on the tray icon 
+Open up the conf/ccnet.conf file with notepdd++ and edit the SERVIC URL to have your IP address before the port :8000
+restart SeaFile
+Open a browser and connect using the URL and admin login credentials
+
+![image](https://user-images.githubusercontent.com/26419649/40691274-36023310-63ff-11e8-9d46-8565c11fe1ac.png)
+
+###### ClientSide
+Install the Client tool on the device u wanted in this case its the 6.1.8 version for Windows
 
