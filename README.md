@@ -483,4 +483,22 @@ OpenStack - https://www.ubuntu.com/download/cloud
  
 Install the chosen candidate and setup a private cloud between two computers – one acting as the cloud server, the other as the client. Verify the cloud solution works. Describe the type of cloud solution you have created and the rationale for the chosen solution.
 
+I chose Seafile
 
+![image](https://user-images.githubusercontent.com/26419649/40691274-36023310-63ff-11e8-9d46-8565c11fe1ac.png)
+
+this is the Server version I downloaded 
+
+![image](https://user-images.githubusercontent.com/26419649/40691321-7cac073c-63ff-11e8-840f-be7450750229.png)
+
+and this was the Client version I downloaded
+
+![image](https://user-images.githubusercontent.com/26419649/40691343-95828c90-63ff-11e8-8860-cbea967b2594.png)
+
+What I have created is much like a personal Github, a space for people to load, download and view their work on any device at anytime.
+This can allow for collaberators to work remotely from around the world and have an upto date sync'd version of the current work.
+
+What Seafile allows you to do is install client syncrniose tools to your phone or pc regardless of its OS and be able to share files at anytime.
+  This allows the admin to allocate permisions and files to specific groups or individual people. 
+  This also alows Time stamps of work to be created so that changes that have been made can be unmade incase some error in the code has occured
+   
