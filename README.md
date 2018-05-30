@@ -506,7 +506,13 @@ What Seafile allows you to do is install client syncrniose tools to your phone o
 2) click the run.bat file inside the unzipped server file 
 3) Choose the disk
 4) Add an Admin account by right clicking on the tray icon 
+
+![image](https://user-images.githubusercontent.com/26419649/40694379-64cee0ec-6410-11e8-88b7-3d1df1373e78.png)
+
 5) Open up the conf/ccnet.conf file with notepdd++ and edit the SERVIC URL to have your IP address before the port :8000
+
+![image](https://user-images.githubusercontent.com/26419649/40694405-829557e6-6410-11e8-988d-9f3085657cce.png)
+
 6) restart SeaFile
 7) Open a browser and connect using the URL and admin login credentials
 
