@@ -474,12 +474,12 @@ Get-ADUser –filter * | Where { $_.LastLogOnDate –lt (Get-Date).AddDays(-180)
 
 ## Session 13
 Choose one of the following candidate solutions to construct a private cloud: 
-Pydio - https://pydio.com/en 
-ownCloud - https://owncloud.org/ 
-Seafile - https://www.seafile.com/en/home/ 
-Cozy - https://cozy.io/en/ 
-Syncthing - https://syncthing.net/ 
-OpenStack - https://www.ubuntu.com/download/cloud 
+  Pydio - https://pydio.com/en 
+  ownCloud - https://owncloud.org/ 
+  Seafile - https://www.seafile.com/en/home/ 
+  Cozy - https://cozy.io/en/ 
+  Syncthing - https://syncthing.net/ 
+  OpenStack - https://www.ubuntu.com/download/cloud 
  
 Install the chosen candidate and setup a private cloud between two computers – one acting as the cloud server, the other as the client. Verify the cloud solution works. Describe the type of cloud solution you have created and the rationale for the chosen solution.
 
@@ -529,3 +529,26 @@ What Seafile allows you to do is install client syncrniose tools to your phone o
 4) Connect and share 
 
 ![image](https://user-images.githubusercontent.com/26419649/40691274-36023310-63ff-11e8-9d46-8565c11fe1ac.png)
+
+I choose Seafile because it had very good independant reviews and wanted to see if it was as easy as I heard.
+It was, very easy. using the manual to install and following the simple steps it waas a breeze.
+
+Seaview allows any person on any platform to collaberate thats the main reason I like it and would recomend it. I have created a limited use case for the Cloud system but it can be scalled very easily and managed just as easily.
+
+
+## Session 14 
+Compare the following mostly commercial cloud solutions. 
+1) Ubuntu MAAS/openStack  
+2) oVirt 
+3) Amazon
+4) Microsoft Azure 
+
+#####  Ubuntu MAAS/openStack
+
+#####  oVirt
+
+#####  Amazon
+
+#####  Microsoft Azure
+
+##### Summary
