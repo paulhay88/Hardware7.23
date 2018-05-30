@@ -501,4 +501,11 @@ This can allow for collaberators to work remotely from around the world and have
 What Seafile allows you to do is install client syncrniose tools to your phone or pc regardless of its OS and be able to share files at anytime.
   This allows the admin to allocate permisions and files to specific groups or individual people. 
   This also alows Time stamps of work to be created so that changes that have been made can be unmade incase some error in the code has occured
-   
+  #### Issues I encountered setting it up
+ Firstly It needs Python 2.7.11 32 bit to run & requires PATH enviromental variables to be added in the C;\Python 27
+ 
+Then a Server File needed to be set up on the C:\ and have the server installed in there
+click the run.bat file inside the unzipped server file 
+Choose the disk
+Add an Admin account by right clicking on the tray icon 
+
