@@ -510,8 +510,16 @@ Open up the conf/ccnet.conf file with notepdd++ and edit the SERVIC URL to have 
 restart SeaFile
 Open a browser and connect using the URL and admin login credentials
 
-![image](https://user-images.githubusercontent.com/26419649/40691274-36023310-63ff-11e8-9d46-8565c11fe1ac.png)
-
 ###### ClientSide
 Install the Client tool on the device u wanted in this case its the 6.1.8 version for Windows
 
+![image](https://user-images.githubusercontent.com/26419649/40694015-80187c98-640e-11e8-9169-93c3f0b87bf7.png)
+
+Choose File location for folder & accept permissions then install
+Select User Name and Add an Account 
+
+![image](https://user-images.githubusercontent.com/26419649/40694059-c54a0034-640e-11e8-8128-5951cf9971bd.png)
+
+Connect and share 
+
+![image](https://user-images.githubusercontent.com/26419649/40691274-36023310-63ff-11e8-9d46-8565c11fe1ac.png)
