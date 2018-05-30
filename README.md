@@ -544,6 +544,14 @@ Compare the following mostly commercial cloud solutions.
 4) Microsoft Azure 
 
 #####  Ubuntu MAAS/openStack
+MaaS - Metal as a Service provided by Ubuntu
+Ubuntu's MaaS is a zero touch deployment system that is available for windows and Linux Distros
+Ubuntu's MaaS can create an instance of a machine on an actual server as fast and easily as any VM. What this does is allows the user to have all the versatility of the cloud with the raw power of an actual metal service. Once created and used they are just as easily removed and deleted as the yare created.
+Essentially MaaS acts as a PXE server that is intergrated with other technologies. The main tool the MaaS uses is Juju.
+Juju is an application for the deployment, service and modeling of MaaS servers. This tool helps configuration and scaling of software.
+Juju's use Charms, Charms are aplications/software used in the deployed instance. They can be configured and matched to related infrastrutre by using modeling and then relationships are attributed to the Charms and their use creating Bundles.
+Budles are whole deployment systems that can be rolled out at a touch of a button, They are matched appliucations for specific reasons that can me matched with other budles to roll out entire infrustruture based or related software. 
+eg If you want a Web Server and client database with Finances and Auditing available you can deploy two - three bundles that will instantly work together and have the available infrastruture you require.
 
 #####  oVirt
 
