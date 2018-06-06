@@ -596,6 +596,11 @@ https://hostadvice.com/hosting-company/amazon-web-services-reviews/
 
 #####  Microsoft Azure
 
-
+The best thing about Azure is thhe global appliction of their Cloud, along side their many features such as SaaS, PaaS and IaaS the size and sheer magnatude of Microsoft make Azure a monolithic sized competitor in the cloud industy. Not only does MS Azure offer the largest range of languages but also in 'Metal' have more nodes aroud the world then anyone else. Azure is now adopting containerisation and is looking towards AaaS (Application as a Service) as they see it as the future of the industry. 
+Originally released in 2010 Azure has grown in capabilities and have shown that as a system are willing to adapt and cahge with the times, now working aloongside Docker this new relationship can align MS to once again take the lionshares of the IT worlds servers and maintain their Titan like grip on the world. Not that that is a bad thing, when MS who have been prodominatly a privitised company and holding proprietary software very close to home. Now MS has adopted a new face to work alongside open source developers in the interest of greater product development, Aquiring Github and working with Linux developers is what makes Azure the power house it is and will be in the future. 
 
 ##### Summary
+
+Azure will reign supreme; with the backing of one of biggest companies in the world and not just competing but infact absorbing the compition and incorperating their software into the current format is why Azure is what I would recomend for most companies that have a viable reason for migrating to the cloud.
+
+Docker & Github are the start of Microsofts acquisition into the dominant Container based Server company. Viewing this as what it is is the big player making sure they stay in their current position by moving with the times and in that note is why I would recoend them, their moving with the times now and they should continue to do so in the future. 
