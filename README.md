@@ -568,8 +568,34 @@ MaaS - Metal as a Service provided by Ubuntu Ubuntu's MaaS is a zero touch deplo
 
 #####  oVirt
 
+Virtualization manager tool for Virtual machines, developed by RedHat.
+There are two parts to oVirt that is the engine and the nodes. The engine is a Java based code that holds up the back end of the servers and the Web Application was developed using GWT and is the main poortal to access the services
+The node is the server, genrally with VDSM on a Linux based system ( RHEL, CentOS & Fedora ).
+VDSM ( Virtual Desktop and Server Manager ) is what controlls the resourses on the server "node". The VDSM is what controlls all the virtual machines and reports on the running preocesses.
+Requires clean Hardware, has a problem with running nodes some drives so it is adviseable to clean all drives before trying to install oVirt nodes on them.
+Uses command line interface as well as GUI tools
+oVirt uses cluster storage and has three server farms so that there is no way really to take down their cloud, but it can also be self hosted.
+Storage
+Can use GlusterFS, iSCSI and NFS, Storage can be local or shared asd is stored in domains. 
+Using VDSM and allowing VLAN's that can connect storage to VM's is a useful tool to help share information easier.
+Supports 'Live migration, Cloning, Snapshots & Templates.
+
 #####  Amazon
 
+I'm going to start by noting this product across the board is bad, not just bad but really bad.
+One of the biggest companies in the world and they produced one of the most useless and over priced cloud system.
+They offer cloud based virtualization and metal based subscriptions.
+Notable differences between AWS and anyone else
+  The amount of complaints and bad reviews from customers and consumers.
+  I've never researched a new piece of technology and had one company completly screw it up. 
+    They over charge for services that are not needed, they charge people when they offer free services. They are probably  the worst service for video or game hosting. If you maybe wanted something simple like a mail server or a web page sure AWS is fine but do not try and attempt to do much more than that because they are under developed and isolating their customer base. Rushing into a field just to grab a piece of the pie is just what AWS is doing, it's obvious and they doing poorly.
+    Everything I read sounds like it has been written by the markketing department and is full of "pop" words and phrases, trying to find detailed info is a little difficult.
+
+Incase you would like to check my reviews of the reviews.
+https://hostadvice.com/hosting-company/amazon-web-services-reviews/
+
 #####  Microsoft Azure
+
+
 
 ##### Summary
